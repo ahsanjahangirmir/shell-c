@@ -1,0 +1,6 @@
+ls | grep .json && ls -al | grep total | cut -d ' ' -f 2
+cat config.json | grep -oE "easy|medium|advanced" | sort | uniq -c | sort -n || find Tests/ -maxdepth 1 -type f | xargs wc -l | sort -n
+find .. -type f -name "*.c" -o -name "*.h" | xargs wc -l | sort -n && find .. -type f -name "*.c" -o -name "*.h" | xargs wc -l | tail -n 1 | awk '{print $1}' | xargs echo "LOC: " ; find .. -type f -name "*.c" -o -name "*.h" > find.log && cat find.log | xargs wc -l | awk '{print $1}' | sort -n | paste -sd+ | bc
+false || echo "This should be printed" || echo "This should not be printed"
+ls && false || echo "doit" && false && echo "won’t work" || echo "works" ; echo "done"
+false || echo "This should be printed" || echo "This should not be printed"
